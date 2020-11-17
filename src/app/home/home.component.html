@@ -11,7 +11,7 @@
         <span ngbDropdownToggle>
           <i class="material-icons">account_circle</i>
           <span [hidden]="barIsCollapsed || barIsExpanding">
-            {{accountModel?.name || accountModel?.email}}
+            {{accountModel?.name || accountModel?.email || 'Nome do usuário'}}
           </span>
         </span>
         <div class="dropdown-menu-right" ngbDropdownMenu>
