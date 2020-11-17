@@ -1,0 +1,22 @@
+$navbar-height: 50px;
+$main-color: #56519b;
+
+@mixin custom-btn-color($base-color, $font-color: #FFF, $custom-border-color: $base-color) {
+  color: $font-color;
+  background-color: $base-color;
+  border-color: $custom-border-color;
+  min-width: 100px;
+
+  &:hover {
+    color: $font-color;
+    background-color: darken( $base-color, 8% );
+    border-color: darken( $base-color, 8% );
+  }
+  &:focus,
+  &.focus {
+    box-shadow: 0 0 0 0.2rem rgba($base-color, .5)
+  }
+  &:disabled:hover {
+    background-color: $base-color;
+  }
+}

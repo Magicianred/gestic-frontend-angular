@@ -1,1 +1,390 @@
-/* You can add global styles to this file, and also import other style files */
+//@import "./default-search";
+@import "./variables-and-mixins";
+@import '~bootstrap/scss/bootstrap';
+
+// @ MAIN
+html, body {
+  height: 100%;
+  color: #444;
+}
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+
+  app-home {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: $navbar-height 0 1fr;
+  }
+}
+ul.no-styles {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+// @ MISC
+.clickable-link {
+  color: #666;
+  text-decoration: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    color: #444;
+    text-decoration: underline;
+  }
+}
+.section-title {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: #7a7a7a;
+
+  .sub-text {
+    font-size: 11px;
+    color: #ababab;
+    text-transform: capitalize;
+    font-weight: 400;
+    margin-left: 5px;
+  }
+}
+.small-circle-loader {
+  > div.loader {
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+  }
+}
+.section-header {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  color: #FFF;
+  padding: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  background-color: #aaa;
+}
+
+// @ Side-bar-menu: Nav-link
+.clp-sidebar {
+  .nav-link {
+    cursor: pointer;
+    color: #d6d6d6;
+    margin: 7px;
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 0.6rem 1rem;
+    user-select: none;
+
+    .material-icons {
+      font-size: 18px;
+      vertical-align: top;
+      margin-right: 10px;
+    }
+
+    svg {
+      height: 22px;
+      fill: #FFF;
+      margin: 0 7px 0 -1px;
+    }
+    &.active {
+      background-color: $main-color;
+      color: #FFF;
+    }
+    .tab-icon {
+      font-size: 21px;
+      margin-right: 9px;
+      vertical-align: sub;
+    }
+  }
+  &.-collapsed .nav-link{
+    .tab-icon {
+      margin: 0;
+    }
+    svg {
+      margin-right: 0;
+    }
+  }
+}
+
+// @ Defaults buttons
+.clp-btn-submit {
+  @include custom-btn-color($main-color);
+}
+.clp-btn-default {
+  @include custom-btn-color(#f8f9fa, #444, #d2d3e3);
+}
+.clp-btn-danger {
+  @include custom-btn-color(#d54b5d);
+}
+
+// @ Bootstrap Overrides
+.form-control:focus {
+  box-shadow: none;
+}
+.dropdown-menu {
+  font-size: 14px;
+}
+.static-opt {
+  width: 100%;
+  text-align: center;
+}
+.menu-wrapper .popover {
+  max-width: 310px;
+  .popover-body {
+    padding: 0;
+  }
+}
+.tooltip {
+  font-size: 13px;
+}
+.dropdown-toggle.no-arrow::after {
+  display:none;
+}
+.btn,
+.form-control {
+  font-size: 14px;
+}
+.gen-progress-blue .progress-bar {
+  background-color: #75a9f9;
+}
+ul.pagination {
+  margin: 0;
+}
+.page-link {
+  color: $main-color;
+
+  &:hover {
+    color: darken( $main-color, 20% );
+  }
+}
+.page-item.active .page-link {
+  background-color: $main-color;
+  border-color: $main-color;
+}
+
+// @ Modal
+.modal-header {
+  background-color: #fafafa;
+  box-shadow: 0 1px 3px #dedede;
+  border-bottom: none;
+  padding: 15px 24px;
+
+  .close {
+    margin-top: -14px;
+    font-size: 26px;
+    font-weight: 400;
+    cursor: pointer;
+
+    &.-fill-white {
+      color: #FFF;
+      text-shadow: 0 1px 0 #230949;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+}
+.modal-body {
+  padding: 24px;
+  &.-slim {
+    padding: 0;
+  }
+}
+
+// @ clp-popover
+.clp-popover {
+  cursor: auto;
+  min-width: 260px;
+  margin: -.5rem -.75rem;
+
+  header {
+    display: grid;
+    grid-template-columns: auto min-content;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    background-color: #7a7a7a;
+    text-align: center;
+    padding: 8px 12px;
+    color: #FFF;
+
+    .close {
+      font-size: 22px;
+      font-weight: 400;
+      cursor: pointer;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
+// @ Forms defaults
+.ng-valid[required], .ng-valid.required  {
+  border-left: 2px solid #27b2a3;
+}
+input.ng-invalid.ng-dirty:not(form)  {
+  border-left: 2px solid #a94442;
+}
+.password-mismatch {
+  padding-top: 2px;
+  font-size: 12px;
+  color: #a94442;
+}
+input.form-control,
+textarea.form-control,
+select.custom-select {
+  height: 42px;
+  font-size: 14px;
+  border: 2px solid #d2d3e3;
+}
+.clp-default-form {
+  .options-separator {
+    margin-bottom: 3px;
+    .sub-text {
+      font-size: 11px;
+      color: #ababab;
+      text-transform: capitalize;
+      font-weight: 400;
+    }
+    hr {
+      margin: 8px 15px 8px 0;
+    }
+  }
+  .form-group {
+    position: relative;
+    input {
+      height: 42px;
+      font-size: 14px;
+    }
+    > label {
+      @extend .section-title;
+    }
+    gen-loading-circle {
+      position: absolute;
+      right: 16px;
+      top: 41px;
+    }
+    .read-only-field {
+      border-bottom: 1px solid #d6d6d6;
+      font-size: 14px;
+      padding: 3px 0 6px 0;
+    }
+  }
+  .field-link {
+    font-weight: 500;
+    color: #428bca;
+    font-size: 12px;
+    text-transform: initial;
+    cursor: pointer;
+
+    &:hover {
+      color: #0056b3;
+      text-decoration: underline;
+    }
+  }
+  .custom-radio label {
+    padding: 2px 0;
+    cursor: pointer;
+  }
+}
+.searchable-input {
+  input {
+    padding-right: 35px;
+  }
+  .material-icons {
+    pointer-events: none;
+    position: absolute;
+    right: 18px;
+    top: 42px;
+    font-size: 22px;
+    color: #555;
+  }
+}
+.section-divider {
+  display: flex;
+  font-size: 12px;
+  font-weight: 500;
+  hr {
+    flex-grow: 1;
+    margin: 8px 0 0 12px;
+  }
+}
+
+// @ Default table
+.clp-default-table {
+  background-color: #FFF;
+  color: #444;
+  margin: 0;
+
+  thead {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    background-color: #f7f6f6;
+    font-size: 12px;
+    color: #7a7a7a;
+    text-transform: uppercase;
+    th {
+      font-weight: 500;
+      padding: .5rem .75rem;
+      border-bottom: none;
+      vertical-align: middle;
+      border: none;
+    }
+  }
+  tbody > tr {
+    cursor: pointer;
+    transition: background-color .1s;
+  }
+
+  &.-sub-table {
+    thead {
+      background-color: #e9ecef;
+      box-shadow: none;
+    }
+    th {
+      font-size: 11px;
+      color: #4c4c4c;
+      padding: 0.4rem .75rem;
+    }
+  }
+}
+
+// @ clp default tabset
+.clp-tabset {
+  .nav-tabs {
+    border-bottom: 3px solid #c0c0c0;
+    font-size: 14px;
+
+    li.nav-item {
+      margin-bottom: -3px;
+    }
+    a.nav-link {
+      border: none;
+      color: #444;
+
+      &.active {
+        color: $main-color;
+        font-weight: 500;
+        border-bottom: 3px solid $main-color;
+        background-color: transparent;
+        box-shadow: inset 0 -4px 5px -6px $main-color;
+        transition: color .1s, border-bottom-color .1s, box-shadow .1s;
+      }
+    }
+  }
+}
+
+// @ clp-uib-datepicker
+.clp-uib-datepicker {
+  .btn {
+    padding: 0 10px;
+  }
+  .material-icons {
+    font-size: 18px;
+    vertical-align: sub;
+  }
+}
