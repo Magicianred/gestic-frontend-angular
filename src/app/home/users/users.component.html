@@ -1,0 +1,55 @@
+<div class="clp-default-search-page">
+ <!--Title-->
+  <clp-page-header pageTitle="Usuários"></clp-page-header>
+  <!--Header-->
+  <header>
+    <section class="search-section">
+      <div class="search-wrapper">
+        <input class="form-control searchable-input"
+               name="searchInput"
+               placeholder="Pesquisar..."
+               [(ngModel)]="searchModel.text"
+               (keyup.enter)="loadUsers()"
+               autofocus>
+        <gen-loading-circle [hidden]="!searchModel.loading"></gen-loading-circle>
+      </div>
+      <div class="action-menu">
+        <button type="button" class="btn clp-btn-submit" (click)="redirectToUserDetails('new-user')">
+          Criar novo usuário
+        </button>
+      </div>
+    </section>
+  </header>
+  <!--Main-->
+  <main class="-table-wrapper">
+    <div [ngClass]="{'loading-data': searchModel.loading}">
+      <table class="table table-hover clp-default-table">
+        <thead>
+        <tr>
+          <th>IDENTIFICADOR</th>
+          <th>ASSUNTO</th>
+          <th>AUTOR</th>
+          <th>STATUS</th>
+          <th>CRIADO EM</th>
+          <th>MODIFICADO EM</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let userItem of userList" (click)="redirectToUserDetails(userItem._id)">
+          <td>info</td>
+          <td>info</td>
+          <td>info</td>
+          <td>info</td>
+          <td>info</td>
+          <td>info</td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="no-data-placeholder" [hidden]="!userList || userList?.length > 0">
+        Nenhum usuário encontrado
+      </div>
+    </div>
+    <gen-loading-bullet class="loading-bullet" [hidden]="!searchModel.loading">
+    </gen-loading-bullet>
+  </main>
+</div>

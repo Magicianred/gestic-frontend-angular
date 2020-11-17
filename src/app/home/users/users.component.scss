@@ -1,0 +1,31 @@
+@import "../../../variables-and-mixins";
+
+.clp-default-search-page {
+  header {
+    background-color: #FFF;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .24);
+
+    .search-section {
+      margin-bottom: 30px;
+
+      gen-loading-circle {
+        position: absolute;
+        top: 9px;
+        left: 9px;
+      }
+      .clp-btn-submit {
+        font-size: 16px;
+      }
+    }
+    .filter-section .loading-bullet {
+      margin: 25px auto;
+    }
+  }
+
+  .-table-wrapper {
+    border-top: 4px solid $main-color;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .24);
+    position: relative;
+  }
+}
