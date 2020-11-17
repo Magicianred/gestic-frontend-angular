@@ -5,7 +5,6 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { UsersModule } from './users/users.module';
-import { NavTabService } from './_services/nav-tab.service';
 import { NestedNavbarComponent } from './_utils/nested-navbar/nested-navbar.component';
 import { PageNotFoundComponent } from './_utils/not-found.component';
 
@@ -22,8 +21,6 @@ import { PageNotFoundComponent } from './_utils/not-found.component';
     PageNotFoundComponent
   ],
   entryComponents: [],
-  providers: [
-    NavTabService
-  ]
+  providers: []
 })
 export class HomeModule {}

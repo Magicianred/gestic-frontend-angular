@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../_services/auth-guard.service';
 import { HomeComponent } from './home.component';
-import { RoleGuard } from './_services/role-guard.service';
+// import { RoleGuard } from './_services/role-guard.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './users/profile/profile.component';
 import { PageNotFoundComponent } from './_utils/not-found.component';
@@ -43,7 +43,7 @@ const homeRoutes: Routes = [{
     RouterModule
   ],
   providers: [
-    RoleGuard
+    // RoleGuard
   ]
 })
 export class HomeRoutingModule {}
