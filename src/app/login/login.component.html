@@ -1,0 +1,29 @@
+<div class="login-component">
+  <div class="login-contents">
+    <div class="login-header">
+      Gestão IC App
+    </div>
+    <div class="login-body">
+      <div class="login-text">Login</div>
+      <form class="login-form" #loginForm="ngForm" (ngSubmit)="login()" novalidate>
+        <div class="form-group">
+          <input type="email"
+                 name="userEmailInput"
+                 class="form-control"
+                 placeholder="E-mail"
+                 [(ngModel)]="loginFormOpt.email" required email>
+        </div>
+        <div class="form-group">
+          <input type="password"
+                 name="userPasswordInput"
+                 class="form-control"
+                 placeholder="Senha"
+                 [(ngModel)]="loginFormOpt.password" required>
+        </div>
+        <button class="btn clp-btn-submit" [disabled]="!loginForm.form.valid || loadingReq">
+          {{ (loadingReq) ? 'Carregando...' : 'Entrar' }}
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
