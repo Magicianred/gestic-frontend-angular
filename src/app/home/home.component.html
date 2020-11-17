@@ -25,20 +25,23 @@
     <div class="navigation-tabs">
       <!--@ Navigation section -->
       <nav class="nav flex-column">
-        <!-- Nested Tab -->
-        <nested-navbar-component (click)="toggleNavbar(false)"
-                                 [(activeNav)]="activeNavId"
-                                 [barIsCollapsed]="barIsCollapsed || barIsExpanding"
-                                 [sideBarOpts]="currTabs?.nestedTabName">
-        </nested-navbar-component>
         <!-- Single Tab -->
         <a class="nav-link"
-           routerLink="/home/aaa"
+           routerLink="/home/dashboard"
            routerLinkActive="active"
            [routerLinkActiveOptions]="{exact: true}">
-          <i class="material-icons tab-icon">face</i>
+          <i class="material-icons tab-icon">dashboard</i>
           <span [hidden]="barIsCollapsed || barIsExpanding">
-            Single tab
+            Dashboard
+          </span>
+        </a>
+        <a class="nav-link"
+           routerLink="/home/users"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{exact: true}">
+          <i class="material-icons tab-icon">group</i>
+          <span [hidden]="barIsCollapsed || barIsExpanding">
+            Usuários
           </span>
         </a>
       </nav>

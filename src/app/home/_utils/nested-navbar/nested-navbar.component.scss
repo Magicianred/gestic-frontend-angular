@@ -1,0 +1,41 @@
+@import "./src/variables-and-mixins";
+
+.nest-header.nav-link {
+  &.opened {
+    font-weight: 500;
+    background-color: #4c4c4c;
+
+    &.active {
+      background-color: $main-color;
+      color: #FFF;
+    }
+  }
+  i.arrow-right {
+    padding: 2px 0;
+    float: right;
+    font-size: 18px;
+    transition: transform 0.1s;
+
+    &.opened {
+      transform: rotate(90deg);
+      transition: transform 0.1s;
+    }
+  }
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+
+  a.nav-link {
+    padding: .6rem .5rem;
+    font-size: 12px;
+
+    &.active {
+      background-color: #7a7a7a;
+      font-weight: 500;
+    }
+  }
+}
+
