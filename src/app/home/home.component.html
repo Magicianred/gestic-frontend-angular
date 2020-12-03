@@ -1,58 +1,10 @@
 <div class="home-component">
   <!-- Navbar -->
-  <div class="clp-sidebar" [ngClass]="{'-collapsed': barIsCollapsed}">
-    <div class="brand-section">
-      <i class="material-icons">book</i>
-      <span [hidden]="barIsCollapsed">Gestão IC App</span>
-    </div>
-    <div class="user-info">
-      <!-- Dropdown -->
-      <div class="ml-auto menu-handle" display="dynamic" ngbDropdown>
-        <span ngbDropdownToggle>
-          <i class="material-icons">account_circle</i>
-          <span [hidden]="barIsCollapsed || barIsExpanding">
-            {{accountModel?.name || accountModel?.email || 'Nome do usuário'}}
-          </span>
-        </span>
-        <div class="dropdown-menu-right" ngbDropdownMenu>
-          <div class="static-opt">{{accountModel?.email}}</div>
-          <div class="dropdown-divider"></div>
-          <a routerLink="/home/profile" class="dropdown-item">Minha conta</a>
-          <a class="dropdown-item" (click)="logout()">Sair</a>
-        </div>
-      </div>
-    </div>
-    <div class="navigation-tabs">
-      <!--@ Navigation section -->
-      <nav class="nav flex-column">
-        <!-- Single Tab -->
-        <a class="nav-link"
-           routerLink="/home/dashboard"
-           routerLinkActive="active"
-           [routerLinkActiveOptions]="{exact: true}">
-          <i class="material-icons tab-icon">dashboard</i>
-          <span [hidden]="barIsCollapsed || barIsExpanding">
-            Dashboard
-          </span>
-        </a>
-        <a class="nav-link"
-           routerLink="/home/users"
-           routerLinkActive="active"
-           [routerLinkActiveOptions]="{exact: true}">
-          <i class="material-icons tab-icon">group</i>
-          <span [hidden]="barIsCollapsed || barIsExpanding">
-            Usuários
-          </span>
-        </a>
-      </nav>
-    </div>
-    <footer (click)="toggleNavbar()">
-      <i class="material-icons collapse-icon">keyboard_tab</i>
-      <span [hidden]="barIsCollapsed">
-        Encolher
-      </span>
-    </footer>
-  </div>
+  <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand">
+      <img class="brand-img" src="../../assets/favicon.svg" [routerLink]="defaultRedirectUrl"/> GestIC
+    </a>
+  </nav>
   <!-- View -->
   <section>
     <router-outlet></router-outlet>

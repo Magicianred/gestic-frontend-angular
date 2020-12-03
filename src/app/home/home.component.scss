@@ -3,80 +3,60 @@
 .home-component {
   height: 100vh;
   display: flex;
+  flex-direction: column;
 
-  > .clp-sidebar {
-    display: flex;
-    flex-direction: column;
+  > .navbar {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    height: $navbar-height;
+    background-color: #009688;
     font-size: 16px;
-    width: 190px;
-    background-color: #24282f;
-    transition: width .1s;
+    padding: 0.3rem 1rem;
 
-    .brand-section {
-      background-color: #212429;
-      display: flex;
-      height: 50px;
-      font-size: 14px;
-      color: #fff;
-      justify-content: space-evenly;
-      align-items: center;
-
-      span {
-        margin: 0 10px;
-      }
-    }
-    .user-info {
-      font-size: 14px;
+    .navbar-brand {
       color: #FFF;
-      margin: 24px 0 120px;
 
-      .material-icons {
-        vertical-align: bottom;
-        font-size: 26px;
-        margin: 0 -3px;
-      }
-      .dropdown-toggle {
-        padding: 5px 0;
-        margin: 0 15px;
+      > img {
+        height: 24px;
+        vertical-align: sub;
         cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
       }
     }
-    .navigation-tabs {
-      flex: 1;
-    }
-    footer {
-      cursor: pointer;
-      display: flex;
-      padding: 0 20px;
-      height: 40px;
-      font-size: 14px;
-      color: #d6d6d6;
-      border-top: 1px solid #676a6f;
-      align-items: center;
-      user-select: none;
+    .nav-item > a {
+      color: #1f34b8;
 
-      .collapse-icon {
-        color: #c0c0c0;
-        font-size: 22px;
-        transform: rotate(180deg);
+      &.active {
+        color: #3f71af;
+        font-weight: 500;
       }
-      span {
-        margin: 0 10px;
+      &.disabled {
+        opacity: 0.6;
+      }
+      .material-icons {
+        font-size: 18px;
+        vertical-align: text-top;
+        margin-right: 2px;
       }
     }
-    &.-collapsed {
-      width: 67px;
-      footer .collapse-icon {
-        transform: rotate(0deg);
+    .menu-handle {
+      color: #405166;
+      cursor: pointer;
+
+      .dropdown-toggle {
+        padding: 7px 0;
+      }
+      .static-opt {
+        font-size: 13px;
+        color: #909090;
+        padding: .25rem 1.5rem;
+        cursor: default;
+      }
+      a.dropdown-item {
+        padding: 0.5rem 1.5rem;
       }
     }
   }
   > section {
     flex: 1;
-    height: 100%;
+    height: 0;
   }
 }
