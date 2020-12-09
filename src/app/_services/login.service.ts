@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { SessionService } from './session.service';
 import { environment } from '../../environments/environment';
-import { HttpBackend, HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpBackend, HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 
 @Injectable()
@@ -17,18 +17,17 @@ export class LoginService {
   }
 
   login(userEmail: string, userPassword: string): Observable<void> {
-    const encoded = btoa(userEmail + ':' + userPassword);
-    const headers = new HttpHeaders().set('Authorization', 'Basic ' + encoded);
+    const body = { 'email': userEmail, 'password': userPassword };
 
     return this.httpClient
-      .get(environment.baseUrl + '/login', { headers: headers, observe: 'response' })
+      .post(environment.baseUrl + '/login', body, { observe: 'response', responseType:'json' })
       .pipe(
         map((response) => {
           SessionService.clear();
           SessionService.setUser(response.body);
           /* When preflight OPTIONS are called, it generates a header with a lower case "authorization"
           otherwise the auth-header is spelled "Authorization" */
-          SessionService.setToken(response.headers.get('authorization') || response.headers.get('Authorization'));
+          SessionService.setToken(response.body['token']);
         })
       );
   }
