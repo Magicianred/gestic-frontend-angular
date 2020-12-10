@@ -1,0 +1,15 @@
+<clp-page-header pageTitle="Projetos Ativos"></clp-page-header>
+
+<ul class="default-list-of-items no-styles">
+  <li *ngFor="let fileItem of activeProjectsList">
+    <span class="material-icons --blue">school</span>
+    <div class="file-specs">
+      <div class="file-name">
+        {{fileItem.name}}
+      </div>
+      <div class="file-date">
+        {{fileItem.creationDate | date: 'd \'de\' MMMM, yyyy'}}
+      </div>
+    </div>
+  </li>
+</ul>

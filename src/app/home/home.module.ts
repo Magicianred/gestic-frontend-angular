@@ -7,6 +7,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { UsersModule } from './users/users.module';
 import { PageNotFoundComponent } from './_utils/not-found.component';
 import { BulletinBoardModule } from './bulletin-board/bulletin-board.module';
+import { ActiveProjectsModule } from './active-projects/active-projects.module';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { BulletinBoardModule } from './bulletin-board/bulletin-board.module';
     HomeRoutingModule,
     DashboardModule,
     BulletinBoardModule,
+    ActiveProjectsModule,
     UsersModule
   ],
   declarations: [

@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from '../_services/auth-guard.service';
 import { HomeComponent } from './home.component';
 // import { RoleGuard } from './_services/role-guard.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './users/profile/profile.component';
 import { PageNotFoundComponent } from './_utils/not-found.component';
 import { UsersComponent } from './users/users.component';
-import { BulletinBoardComponent } from './bulletin-board/bulletin-board/bulletin-board.component';
+import { BulletinBoardComponent } from './bulletin-board/bulletin-board.component';
+import { ActiveProjectsComponent } from './active-projects/active-projects.component';
 
 
 const homeRoutes: Routes = [{
@@ -23,6 +23,10 @@ const homeRoutes: Routes = [{
     {
       path: 'bulletin-board',
       component: BulletinBoardComponent,
+    },
+    {
+      path: 'active-projects',
+      component: ActiveProjectsComponent,
     },
     {
       path: 'users',
