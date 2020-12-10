@@ -6,7 +6,7 @@ const routesConfig = { enableTracing: false, useHash: false};
 const routes: Routes = [
   { path: 'home', loadChildren: './home/home.module#HomeModule'},
   // { path: 'home', loadChildren: './home/home.module#HomeModule', canLoad: [AuthGuard] },
-  { path: '**',   redirectTo: 'login', pathMatch: 'full' }, // otherwise redirect to login page
+  { path: '**',   redirectTo: 'home/dashboard', pathMatch: 'full' }, // otherwise redirect to login page
 ];
 
 @NgModule({

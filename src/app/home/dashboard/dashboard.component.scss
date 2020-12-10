@@ -2,7 +2,10 @@ main {
   text-align: center;
   margin: 20px;
 
-  > button {
+  > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 50px;
     margin-bottom: 20px;
