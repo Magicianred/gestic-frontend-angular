@@ -1,1 +1,18 @@
-<p>bulletin-board works!</p>
+<clp-page-header pageTitle="Informativos"></clp-page-header>
+
+<ul class="list-of-documents no-styles">
+  <li *ngFor="let fileItem of dataFilesList">
+    <span class="material-icons">folder</span>
+    <div class="file-specs">
+      <div class="file-name">
+        {{fileItem.name}}
+      </div>
+      <div class="file-date">
+        {{fileItem.creationDate | date: 'd \'de\' MMMM, yyyy'}}
+      </div>
+    </div>
+    <a [href]="fileItem.url" class="download-link">
+      BAIXAR
+    </a>
+  </li>
+</ul>
