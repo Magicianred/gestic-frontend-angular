@@ -1,22 +1,38 @@
 import { Component, Input } from '@angular/core';
+import { SessionService } from '../../_services/session.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'clp-page-header',
-  template: '<main>{{pageTitle}}</main>',
+  template: `
+    <main (click)="goBackToUrl()">
+      <i class="material-icons">arrow_back</i>
+      {{pageTitle}}
+    </main>
+  `,
   styles: [`      
     main {
+      display: flex;
       height: 50px;
       background-color: #f0f1f3;
-      padding: 12px 22px;
-      font-weight: 300;
-      font-size: 22px;
+      padding: 10px;
+      font-size: 18px;
       line-height: 1;
       align-items: center;
-      display: flex;
-    }   
+    }
+    .material-icons {
+      font-size: 20px;
+      margin-right: 10px;
+    }
   `]
 })
 export class PageHeaderComponent {
   @Input() pageTitle: string;
-  constructor() {}
+  @Input() backButtonUrl?: string;
+
+  constructor(private router: Router) {}
+
+  goBackToUrl(): void {
+    this.router.navigate([ this.backButtonUrl || SessionService.getDefaultHomePageUrl() ]);
+  }
 }
