@@ -1,4 +1,3 @@
-//@import "./default-search";
 @import "./variables-and-mixins";
 @import '~bootstrap/scss/bootstrap';
 
@@ -98,9 +97,6 @@ ul.no-styles {
 .form-control {
   font-size: 14px;
 }
-.gen-progress-blue .progress-bar {
-  background-color: #75a9f9;
-}
 ul.pagination {
   margin: 0;
 }
@@ -140,36 +136,6 @@ ul.pagination {
 }
 .modal-body {
   padding: 24px;
-  &.-slim {
-    padding: 0;
-  }
-}
-
-// @ clp-popover
-.clp-popover {
-  cursor: auto;
-  min-width: 260px;
-  margin: -.5rem -.75rem;
-
-  header {
-    display: grid;
-    grid-template-columns: auto min-content;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    background-color: #7a7a7a;
-    text-align: center;
-    padding: 8px 12px;
-    color: #FFF;
-
-    .close {
-      font-size: 22px;
-      font-weight: 400;
-      cursor: pointer;
-      &:focus {
-        outline: none;
-      }
-    }
-  }
 }
 
 // @ Forms defaults
@@ -299,41 +265,5 @@ select.custom-select {
       color: #4c4c4c;
       padding: 0.4rem .75rem;
     }
-  }
-}
-
-// @ clp default tabset
-.clp-tabset {
-  .nav-tabs {
-    border-bottom: 3px solid #c0c0c0;
-    font-size: 14px;
-
-    li.nav-item {
-      margin-bottom: -3px;
-    }
-    a.nav-link {
-      border: none;
-      color: #444;
-
-      &.active {
-        color: $main-color;
-        font-weight: 500;
-        border-bottom: 3px solid $main-color;
-        background-color: transparent;
-        box-shadow: inset 0 -4px 5px -6px $main-color;
-        transition: color .1s, border-bottom-color .1s, box-shadow .1s;
-      }
-    }
-  }
-}
-
-// @ clp-uib-datepicker
-.clp-uib-datepicker {
-  .btn {
-    padding: 0 10px;
-  }
-  .material-icons {
-    font-size: 18px;
-    vertical-align: sub;
   }
 }

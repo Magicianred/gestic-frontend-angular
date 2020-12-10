@@ -5,7 +5,6 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { UsersModule } from './users/users.module';
-import { NestedNavbarComponent } from './_utils/nested-navbar/nested-navbar.component';
 import { PageNotFoundComponent } from './_utils/not-found.component';
 
 @NgModule({
@@ -17,7 +16,6 @@ import { PageNotFoundComponent } from './_utils/not-found.component';
   ],
   declarations: [
     HomeComponent,
-    NestedNavbarComponent,
     PageNotFoundComponent
   ],
   entryComponents: [],
