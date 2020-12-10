@@ -8,6 +8,7 @@ import { PageNotFoundComponent } from './_utils/not-found.component';
 import { UsersComponent } from './users/users.component';
 import { BulletinBoardComponent } from './bulletin-board/bulletin-board.component';
 import { ActiveProjectsComponent } from './active-projects/active-projects.component';
+import { ProjectDetailsComponent } from './active-projects/project-details/project-details.component';
 
 
 const homeRoutes: Routes = [{
@@ -27,6 +28,10 @@ const homeRoutes: Routes = [{
     {
       path: 'active-projects',
       component: ActiveProjectsComponent,
+    },
+    {
+      path: 'active-projects/:projectId',
+      component: ProjectDetailsComponent,
     },
     {
       path: 'users',

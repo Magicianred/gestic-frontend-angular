@@ -1,14 +1,14 @@
 <clp-page-header pageTitle="Projetos Ativos"></clp-page-header>
 
 <ul class="default-list-of-items no-styles">
-  <li *ngFor="let fileItem of activeProjectsList">
+  <li *ngFor="let projectItem of activeProjectsList" (click)="goToProjectDetails(projectItem)">
     <span class="material-icons --blue">school</span>
     <div class="file-specs">
       <div class="file-name">
-        {{fileItem.name}}
+        {{projectItem.name}}
       </div>
       <div class="file-date">
-        {{fileItem.creationDate | date: 'd \'de\' MMMM, yyyy'}}
+        {{projectItem.creationDate | date: 'd \'de\' MMMM, yyyy'}}
       </div>
     </div>
   </li>
