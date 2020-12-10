@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './users/profile/profile.component';
 import { PageNotFoundComponent } from './_utils/not-found.component';
 import { UsersComponent } from './users/users.component';
+import { BulletinBoardComponent } from './bulletin-board/bulletin-board/bulletin-board.component';
 
 
 const homeRoutes: Routes = [{
@@ -18,6 +19,10 @@ const homeRoutes: Routes = [{
     {
       path: 'dashboard',
       component: DashboardComponent,
+    },
+    {
+      path: 'bulletin-board',
+      component: BulletinBoardComponent,
     },
     {
       path: 'users',

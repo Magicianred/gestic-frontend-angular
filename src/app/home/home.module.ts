@@ -6,12 +6,14 @@ import { HomeComponent } from './home.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { UsersModule } from './users/users.module';
 import { PageNotFoundComponent } from './_utils/not-found.component';
+import { BulletinBoardModule } from './bulletin-board/bulletin-board.module';
 
 @NgModule({
   imports: [
     SharedModule,
     HomeRoutingModule,
     DashboardModule,
+    BulletinBoardModule,
     UsersModule
   ],
   declarations: [
