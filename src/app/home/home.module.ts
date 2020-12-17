@@ -8,6 +8,9 @@ import { UsersModule } from './users/users.module';
 import { PageNotFoundComponent } from './_utils/not-found.component';
 import { BulletinBoardModule } from './bulletin-board/bulletin-board.module';
 import { ActiveProjectsModule } from './active-projects/active-projects.module';
+import { UserRegisterComponent } from './user-register/user-register.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   imports: [
@@ -16,11 +19,14 @@ import { ActiveProjectsModule } from './active-projects/active-projects.module';
     DashboardModule,
     BulletinBoardModule,
     ActiveProjectsModule,
-    UsersModule
+    UsersModule,
+    ReactiveFormsModule,
+    NgxMaskModule
   ],
   declarations: [
     HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    UserRegisterComponent
   ],
   entryComponents: [],
   providers: []

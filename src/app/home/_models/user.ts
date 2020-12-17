@@ -1,19 +1,13 @@
 export class User {
   _id: string;
   name: string;
-  role: 'ADMIN' | 'QUESTION_MANAGER' | 'CONCURSO_MANAGER';
+  cpf: string;
   email: string;
   password: string;
-  active = true;
+  tag: string;
 
   constructor(options?) {
     if (options) { Object.assign(this, options); }
-  }
-
-  trim(): User {
-    const payload = new User(this);
-    delete payload._id;
-    return payload;
   }
 }
 

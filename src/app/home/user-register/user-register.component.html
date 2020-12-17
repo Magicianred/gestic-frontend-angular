@@ -1,0 +1,85 @@
+<div class="user-register-page">
+  <form [formGroup]="userRegisterForm" novalidate>
+    <div class="form-group row">
+      <label for="RFName" class="col-md-3">Nome Completo</label>
+      <div class="col field-wrapper">
+        <input id="RFName"
+               class=" form-control"
+               formControlName="name">
+        <small class="-invalid" *ngIf="!fCtrls.name.errors?.required && fCtrls.name.errors?.notFullName">
+          Por favor digite nome e sobrenome.
+        </small>
+        <small class="-invalid" *ngIf="!fCtrls.name.pristine && fCtrls.name.errors?.required">
+          Campo obrigatório
+        </small>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="RFCPF" class="col-md-3">CPF</label>
+      <div class="col field-wrapper">
+        <input id="RFCPF"
+               class="col form-control"
+               mask="000.000.000-00"
+               formControlName="cpf">
+        <small class="-invalid" *ngIf="!fCtrls.cpf.errors?.required && (fCtrls.cpf.errors?.cpfNotValid || fCtrls.cpf.errors?.mask)">
+          CPF inválido.
+        </small>
+        <small class="-invalid" *ngIf="!fCtrls.cpf.pristine && fCtrls.cpf.errors?.required">
+          Campo obrigatório
+        </small>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="RFEmail" class="col-md-3">Email</label>
+      <div class="col field-wrapper">
+        <input id="RFEmail" class="col form-control" formControlName="email">
+        <small class="-invalid" *ngIf="!fCtrls.email.pristine && fCtrls.email.errors?.required">
+          Campo obrigatório
+        </small>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="RFPassword" class="col-md-3">Senha</label>
+      <div class="col field-wrapper">
+        <input id="RFPassword"
+               type="password"
+               class="col form-control"
+               (keyup)="updatePasswordValidity()"
+               formControlName="password">
+        <small class="-invalid"
+               *ngIf="!fCtrls.password.pristine && fCtrls.password.errors?.required">
+          Campo obrigatório
+        </small>
+        <small class="-invalid"
+               *ngIf="fCtrls.password.errors?.minlength">
+          A senha deve ter no mínimo 6 caracteres
+        </small>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="RFConfirmPassword" class="col-md-3">Confirmar Senha</label>
+      <div class="col field-wrapper">
+        <input id="RFConfirmPassword"
+               type="password"
+               class="col form-control"
+               [clpPasswordCheck]="tempPassword"
+               formControlName="confirmPassword">
+        <small class="-invalid"
+               *ngIf="!fCtrls.confirmPassword.pristine && fCtrls.confirmPassword.errors?.required">
+          Campo obrigatório
+        </small>
+        <small class="-invalid"
+               *ngIf="!fCtrls.confirmPassword.errors?.required && passwordConfirmationDoesNotMatch">
+          Senhas diferentes
+        </small>
+      </div>
+    </div>
+  </form>
+  <footer>
+    <button class="btn clp-btn-submit"
+            [disabled]="userRegisterForm.invalid || isSubmittingForm"
+            (click)="submitRegisterForm()">
+      {{ (isSubmittingForm) ? 'Carregando...' : 'Criar' }}
+    </button>
+  </footer>
+</div>

@@ -9,6 +9,7 @@ import { UsersComponent } from './users/users.component';
 import { BulletinBoardComponent } from './bulletin-board/bulletin-board.component';
 import { ActiveProjectsComponent } from './active-projects/active-projects.component';
 import { ProjectDetailsComponent } from './active-projects/project-details/project-details.component';
+import { UserRegisterComponent } from './user-register/user-register.component';
 
 
 const homeRoutes: Routes = [{
@@ -36,6 +37,10 @@ const homeRoutes: Routes = [{
     {
       path: 'users',
       component: UsersComponent,
+    },
+    {
+      path: 'user-register',
+      component: UserRegisterComponent,
     },
     {
       path: 'profile',

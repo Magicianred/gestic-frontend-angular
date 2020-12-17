@@ -157,6 +157,17 @@ select.custom-select {
   font-size: 14px;
   border: 2px solid #d2d3e3;
 }
+.field-wrapper {
+  > small,
+  span {
+    position: absolute;
+
+    &.-invalid {
+      color: #dc3545;
+    }
+  }
+}
+
 .clp-default-form {
   .options-separator {
     margin-bottom: 3px;
