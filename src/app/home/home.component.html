@@ -4,6 +4,21 @@
     <a class="navbar-brand">
       <img class="brand-img" src="../../assets/favicon.svg" [routerLink]="defaultRedirectUrl"/> GestIC
     </a>
+    <!-- Login link -->
+    <a class="login-link" href="/login" [hidden]="accountModel">Login</a>
+    <!-- Dropdown -->
+    <div class="ml-auto menu-handle" display="dynamic" placement="bottom-right" ngbDropdown [hidden]="!accountModel">
+      <span ngbDropdownToggle>
+        {{accountModel?.name || accountModel?.email || 'Usuário'}}
+      </span>
+      <div class="dropdown-menu-right" ngbDropdownMenu>
+        <span class="static-opt">{{accountModel?.email | textPlaceholder}}</span>
+        <div class="dropdown-divider"></div>
+        <a routerLink="/home/user-register" class="dropdown-item">Cadastro</a>
+        <a routerLink="/home/profile" class="dropdown-item">Minha conta</a>
+        <a class="dropdown-item" (click)="logout()">Sair</a>
+      </div>
+    </div>
   </nav>
   <!-- View -->
   <section>

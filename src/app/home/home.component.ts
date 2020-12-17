@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SessionService } from '../_services/session.service';
 import { User } from './_models/user';
 import { LoginService } from '../_services/login.service';
@@ -8,7 +8,7 @@ import { LoginService } from '../_services/login.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   accountModel: User = SessionService.getUser();
   defaultRedirectUrl = SessionService.getDefaultHomePageUrl();
 
@@ -17,4 +17,9 @@ export class HomeComponent {
   logout() {
     this.loginService.logout();
   }
+
+  ngOnInit() {
+    console.log(this.accountModel);
+  }
+
 }
