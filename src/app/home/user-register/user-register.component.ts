@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from '../_utils/custom-validators';
 import { User } from '../_models/user';
 import { ToastrService } from 'ngx-toastr';
+import { UserService } from '../_services/user.service';
 
 
 @Component({
@@ -25,6 +26,7 @@ export class UserRegisterComponent implements OnInit {
   }
 
   constructor(private fb: FormBuilder,
+              private userService: UserService,
               private toastr: ToastrService) { }
 
   ngOnInit(): void {
@@ -34,7 +36,7 @@ export class UserRegisterComponent implements OnInit {
       cpf: ['', [Validators.required, CustomValidators.isValidCpf()]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      tag: ['ADMIN', Validators.required],
+      tag: ['ALUN', Validators.required],
       confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
@@ -53,15 +55,14 @@ export class UserRegisterComponent implements OnInit {
     userPayload.password = this.fCtrls.password.value;
     userPayload.tag = this.fCtrls.tag.value;
 
-    console.log(userPayload);
-
-    // this.userRegisterService.createUserAndLogin(userPayload)
-    //   .subscribe((newUser) => {
-    //     this.isSubmittingForm = false;
-    //   }, errResponse => {
-    //     this.isSubmittingForm = false;
-    //     this.toastr.error('Ocorreu um erro');
-    //   })
+    this.userService.createNewUser(userPayload)
+      .subscribe((newUser) => {
+        this.isSubmittingForm = false;
+        this.toastr.success('Usuário criado com sucesso!');
+      }, errResponse => {
+        this.isSubmittingForm = false;
+        this.toastr.error('Ocorreu um erro');
+      })
   }
 
 }

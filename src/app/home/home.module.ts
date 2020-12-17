@@ -11,6 +11,7 @@ import { ActiveProjectsModule } from './active-projects/active-projects.module';
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
+import { UserService } from './_services/user.service';
 
 @NgModule({
   imports: [
@@ -29,6 +30,8 @@ import { NgxMaskModule } from 'ngx-mask';
     UserRegisterComponent
   ],
   entryComponents: [],
-  providers: []
+  providers: [
+    UserService
+  ]
 })
 export class HomeModule {}
