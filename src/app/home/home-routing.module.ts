@@ -10,13 +10,14 @@ import { BulletinBoardComponent } from './bulletin-board/bulletin-board.componen
 import { ActiveProjectsComponent } from './active-projects/active-projects.component';
 import { ProjectDetailsComponent } from './active-projects/project-details/project-details.component';
 import { UserRegisterComponent } from './user-register/user-register.component';
+import { AuthGuard } from '../_services/auth-guard.service';
 
 
 const homeRoutes: Routes = [{
   path: 'home',
   component: HomeComponent,
-  // canActivate: [AuthGuard],
-  // canActivateChild: [AuthGuard],
+  canActivate: [AuthGuard],
+  canActivateChild: [AuthGuard],
   children: [
     {
       path: 'dashboard',
