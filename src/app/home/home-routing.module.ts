@@ -11,6 +11,7 @@ import { ActiveProjectsComponent } from './active-projects/active-projects.compo
 import { ProjectDetailsComponent } from './active-projects/project-details/project-details.component';
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { AuthGuard } from '../_services/auth-guard.service';
+import { ClassGroupsComponent } from './class-groups/class-groups.component';
 
 
 const homeRoutes: Routes = [{
@@ -30,6 +31,10 @@ const homeRoutes: Routes = [{
     {
       path: 'active-projects',
       component: ActiveProjectsComponent,
+    },
+    {
+      path: 'class-groups',
+      component: ClassGroupsComponent,
     },
     {
       path: 'active-projects/:projectId',

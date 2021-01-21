@@ -12,6 +12,7 @@ import { UserRegisterComponent } from './user-register/user-register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
 import { UserService } from './_services/user.service';
+import { ClassGroupsModule } from './class-groups/class-groups.module';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { UserService } from './_services/user.service';
     ActiveProjectsModule,
     UsersModule,
     ReactiveFormsModule,
-    NgxMaskModule
+    NgxMaskModule,
+    ClassGroupsModule
   ],
   declarations: [
     HomeComponent,

@@ -1,0 +1,15 @@
+<clp-page-header pageTitle="Grupos"></clp-page-header>
+
+<ul class="default-list-of-items no-styles">
+  <li *ngFor="let groupItem of groupsList" (click)="goToGroupDetails(groupItem)">
+    <span class="material-icons --blue">school</span>
+    <div class="file-specs">
+      <div class="file-name">
+        {{groupItem?.name}}
+      </div>
+      <div class="file-date">
+        {{groupItem?.creationDate | date: 'd \'de\' MMMM, yyyy' | textPlaceholder}}
+      </div>
+    </div>
+  </li>
+</ul>
