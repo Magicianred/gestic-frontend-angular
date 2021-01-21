@@ -18,8 +18,6 @@ export class HomeComponent implements OnInit {
     this.loginService.logout();
   }
 
-  ngOnInit() {
-    console.log(this.accountModel);
-  }
+  ngOnInit() {}
 
 }
