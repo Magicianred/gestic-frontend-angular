@@ -16,4 +16,12 @@ export class ProjectService {
         map(projects => projects.map(newProject => new Project(newProject)))
       );
   }
+
+  getProjectById(projectId: string): Observable<Project> {
+    return this.http
+      .get<Project>(`/project/${projectId}`)
+      .pipe(
+        map(newProject => new Project(newProject))
+      );
+  }
 }
