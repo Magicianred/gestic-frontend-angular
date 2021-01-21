@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ProjectService } from '../_services/project.service';
+import { Project } from '../_models/project';
+
 
 @Component({
   selector: 'app-active-projects',
@@ -7,36 +10,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./active-projects.component.scss']
 })
 export class ActiveProjectsComponent implements OnInit {
-  activeProjectsList: {
-    _id: string;
-    name: string;
-    creationDate: Date;
-  }[] = [];
+  activeProjectsList: Project[] = [];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              private projectService: ProjectService) { }
 
   ngOnInit(): void {
-    this.activeProjectsList = [
-      {
-        _id: '123',
-        name: 'MusIC',
-        creationDate: new Date()
-      },
-      {
-        _id: '456',
-        name: 'SEComP',
-        creationDate: new Date()
-      },
-      {
-        _id: '789',
-        name: 'Katie',
-        creationDate: new Date()
-      }
-    ]
+    this.projectService.getActiveProjects()
+      .subscribe(listOfProjects => {
+        this.activeProjectsList = listOfProjects;
+      });
   }
 
   goToProjectDetails(projectItem): void {
-    this.router.navigate([ 'home','active-projects', projectItem._id ])
+    this.router.navigate([ 'home', 'active-projects', projectItem.id ]);
   }
 
 }

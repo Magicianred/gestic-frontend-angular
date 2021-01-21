@@ -5,10 +5,10 @@
     <span class="material-icons --blue">school</span>
     <div class="file-specs">
       <div class="file-name">
-        {{projectItem.name}}
+        {{projectItem?.name}}
       </div>
       <div class="file-date">
-        {{projectItem.creationDate | date: 'd \'de\' MMMM, yyyy'}}
+        {{projectItem?.creationDate | date: 'd \'de\' MMMM, yyyy' | textPlaceholder}}
       </div>
     </div>
   </li>
