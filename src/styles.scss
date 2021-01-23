@@ -311,3 +311,20 @@ ul.default-list-of-items {
     }
   }
 }
+
+
+.floating-button {
+  position: absolute;
+  z-index: 99;
+  right: 30px;
+  bottom: 30px;
+  background-color: #27b2a3;
+  padding: 10px;
+  border-radius: 50px;
+  display: flex;
+
+  .material-icons {
+    color: #FFF;
+    font-size: 40px;
+  }
+}
