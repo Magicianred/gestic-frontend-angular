@@ -25,4 +25,12 @@ export class GroupService {
       );
   }
 
+  createNewGroup(groupModel: Group): Observable<Group> {
+    return this.http
+      .post<Group>(`/class-group`, groupModel)
+      .pipe(
+        map(newGroup => new Group(newGroup))
+      );
+  }
+
 }

@@ -14,6 +14,7 @@ import { AuthGuard } from '../_services/auth-guard.service';
 import { ClassGroupsComponent } from './class-groups/class-groups.component';
 import { GroupDetailsComponent } from './class-groups/group-details/group-details.component';
 import { CreateProjectComponent } from './active-projects/create-project/create-project.component';
+import { CreateGroupComponent } from './class-groups/create-group/create-group.component';
 
 
 const homeRoutes: Routes = [{
@@ -41,6 +42,10 @@ const homeRoutes: Routes = [{
     {
       path: 'create-project',
       component: CreateProjectComponent,
+    },
+    {
+      path: 'create-group',
+      component: CreateGroupComponent,
     },
     {
       path: 'class-groups',

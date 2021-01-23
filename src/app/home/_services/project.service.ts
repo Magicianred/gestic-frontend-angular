@@ -24,4 +24,12 @@ export class ProjectService {
         map(newProject => new Project(newProject))
       );
   }
+
+  createNewProject(projectModel: Project): Observable<Project> {
+    return this.http
+      .post<Project>(`/project`, projectModel)
+      .pipe(
+        map(newProject => new Project(newProject))
+      );
+  }
 }
