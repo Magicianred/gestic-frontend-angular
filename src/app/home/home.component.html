@@ -1,8 +1,8 @@
 <div class="home-component">
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand">
-      <img class="brand-img" src="../../assets/favicon.svg" [routerLink]="defaultRedirectUrl"/> GestIC
+    <a class="navbar-brand" [routerLink]="defaultRedirectUrl">
+      <img class="brand-img" src="../../assets/favicon.svg"/> GestIC
     </a>
     <!-- Login link -->
     <a class="login-link" href="/login" [hidden]="accountModel">Login</a>

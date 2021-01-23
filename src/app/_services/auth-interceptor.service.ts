@@ -16,7 +16,7 @@ export class AuthInterceptor implements HttpInterceptor {
     // Clone the request to add the new authenticated header.
     const authReq = req.clone({
       url: environment.baseUrl + req.url,
-      headers: req.headers.set('Authorization', SessionService.getToken())
+      headers: req.headers.set('x-access-token', SessionService.getToken())
     });
 
     // Pass on the cloned request instead of the original request.
