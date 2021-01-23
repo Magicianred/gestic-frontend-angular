@@ -17,4 +17,13 @@ export class GroupService {
       );
   }
 
+
+  getClassGroupById(groupId: string): Observable<Group> {
+    return this.http
+      .get<Group>(`/class-group/${groupId}`)
+      .pipe(
+        map(newGroup => new Group(newGroup))
+      );
+  }
+
 }
