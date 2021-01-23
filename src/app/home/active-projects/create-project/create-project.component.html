@@ -1,1 +1,46 @@
 <clp-page-header pageTitle="Novo projeto" backButtonUrl="/home/active-projects"></clp-page-header>
+
+<div class="group-register-page">
+  <form [formGroup]="projectRegisterForm" novalidate>
+    <div class="form-group row">
+      <label for="RFName" class="col-md-3">Nome</label>
+      <div class="col field-wrapper">
+        <input id="RFName"
+               class=" form-control"
+               formControlName="name">
+        <small class="-invalid" *ngIf="!fCtrls.name.pristine && fCtrls.name.errors?.required">
+          Campo obrigatório
+        </small>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="RFDesc" class="col-md-3">Descrição</label>
+      <div class="col field-wrapper">
+        <input id="RFDesc"
+               class=" form-control"
+               formControlName="description">
+        <small class="-invalid" *ngIf="!fCtrls.description.pristine && fCtrls.description.errors?.required">
+          Campo obrigatório
+        </small>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="RFUserID" class="col-md-3">ID do usuário:</label>
+      <div class="col field-wrapper">
+        <input id="RFUserID"
+               class=" form-control"
+               formControlName="userId">
+        <small class="-invalid" *ngIf="!fCtrls.userId.pristine && fCtrls.userId.errors?.required">
+          Campo obrigatório
+        </small>
+      </div>
+    </div>
+  </form>
+  <footer>
+    <button class="btn clp-btn-submit"
+            [disabled]="projectRegisterForm.invalid || isSubmittingForm"
+            (click)="submitRegisterForm()">
+      {{ (isSubmittingForm) ? 'Carregando...' : 'Criar' }}
+    </button>
+  </footer>
+</div>

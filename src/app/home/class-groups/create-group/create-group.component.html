@@ -1,0 +1,90 @@
+<clp-page-header pageTitle="Novo grupo" backButtonUrl="/home/class-groups"></clp-page-header>
+
+<div class="group-register-page">
+  <form [formGroup]="groupRegisterForm" novalidate>
+    <div class="form-group row">
+      <label for="RFName" class="col-md-3">Nome</label>
+      <div class="col field-wrapper">
+        <input id="RFName"
+               class=" form-control"
+               formControlName="name">
+        <small class="-invalid" *ngIf="!fCtrls.name.pristine && fCtrls.name.errors?.required">
+          Campo obrigatório
+        </small>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="RFCode" class="col-md-3">Código</label>
+      <div class="col field-wrapper">
+        <input id="RFCode"
+               class=" form-control"
+               formControlName="code">
+        <small class="-invalid" *ngIf="!fCtrls.code.pristine && fCtrls.code.errors?.required">
+          Campo obrigatório
+        </small>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="RFCCLass" class="col-md-3">Código do classroom</label>
+      <div class="col field-wrapper">
+        <input id="RFCCLass"
+               class=" form-control"
+               formControlName="codeClassroom">
+        <small class="-invalid" *ngIf="!fCtrls.codeClassroom.pristine && fCtrls.codeClassroom.errors?.required">
+          Campo obrigatório
+        </small>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="RFLCLass" class="col-md-3">Link do classroom</label>
+      <div class="col field-wrapper">
+        <input id="RFLCLass"
+               class=" form-control"
+               formControlName="linkClassroom">
+        <small class="-invalid" *ngIf="!fCtrls.linkClassroom.pristine && fCtrls.linkClassroom.errors?.required">
+          Campo obrigatório
+        </small>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="RFLMeets" class="col-md-3">Link do Meets</label>
+      <div class="col field-wrapper">
+        <input id="RFLMeets"
+               class=" form-control"
+               formControlName="linkMeets">
+        <small class="-invalid" *ngIf="!fCtrls.linkMeets.pristine && fCtrls.linkMeets.errors?.required">
+          Campo obrigatório
+        </small>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="RFLWpp" class="col-md-3">Link do WhatsApp</label>
+      <div class="col field-wrapper">
+        <input id="RFLWpp"
+               class=" form-control"
+               formControlName="linkWpp">
+        <small class="-invalid" *ngIf="!fCtrls.linkWpp.pristine && fCtrls.linkWpp.errors?.required">
+          Campo obrigatório
+        </small>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="RFLTel" class="col-md-3">Link do Telegram</label>
+      <div class="col field-wrapper">
+        <input id="RFLTel"
+               class=" form-control"
+               formControlName="linkTel">
+        <small class="-invalid" *ngIf="!fCtrls.linkTel.pristine && fCtrls.linkTel.errors?.required">
+          Campo obrigatório
+        </small>
+      </div>
+    </div>
+  </form>
+  <footer>
+    <button class="btn clp-btn-submit"
+            [disabled]="groupRegisterForm.invalid || isSubmittingForm"
+            (click)="submitRegisterForm()">
+      {{ (isSubmittingForm) ? 'Carregando...' : 'Criar' }}
+    </button>
+  </footer>
+</div>
