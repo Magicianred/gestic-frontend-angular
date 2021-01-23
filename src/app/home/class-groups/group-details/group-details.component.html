@@ -1,5 +1,28 @@
-<clp-page-header [pageTitle]="groupModel?.name" backButtonUrl="/home/active-projects"></clp-page-header>
+<clp-page-header [pageTitle]="groupModel?.name" backButtonUrl="/home/class-groups"></clp-page-header>
 <main>
-  <h6>Informações do projeto</h6>
-  <p>{{groupModel?.code}}</p>
+  <div class="data-block">
+    <div class="data-block_title">Código da disciplina:</div>
+    <div class="data-block_data">{{groupModel?.code}}</div>
+  </div>
+  <div class="data-block">
+    <div class="data-block_title">Classroom:</div>
+    <div class="data-block_data">{{groupModel?.codeClassroom}}</div>
+    <div class="data-block_data">{{groupModel?.linkClassroom}}</div>
+  </div>
+  <div class="data-block">
+    <div class="data-block_title">Meet:</div>
+    <div class="data-block_data">{{groupModel?.linkMeets}}</div>
+  </div>
+  <div class="data-block">
+    <div class="data-block_title">Telegram:</div>
+    <div class="data-block_data">{{groupModel?.linkTel}}</div>
+  </div>
+  <div class="data-block">
+    <div class="data-block_title">WhatsApp:</div>
+    <div class="data-block_data">{{groupModel?.linkWpp}}</div>
+  </div>
+  <div class="data-block">
+    <div class="data-block_title">Código do classroom:</div>
+    <div class="data-block_data">{{groupModel?.code}}</div>
+  </div>
 </main>

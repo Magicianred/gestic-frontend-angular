@@ -1,7 +1,14 @@
 main {
   margin: 20px;
 
-  p {
-    margin: 20px 0;
+  .data-block {
+    margin-bottom: 20px;
+
+    .data-block_title {
+      color: #27b2a3;
+    }
+    .data-block_data {
+      color: #333;
+    }
   }
 }
